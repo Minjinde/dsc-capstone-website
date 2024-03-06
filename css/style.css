@@ -2327,6 +2327,16 @@ blockquote {
 
 }
 
-
+.iframe-container {
+    text-align: center; /* Center content */
+}
+iframe {
+    margin: 0 auto; /* Auto margin on both sides */
+    display: block; /* Block display level */
+    border: none; /* Optional: Removes the border */
+    width: 1000px; /* Define the width */
+    height: 500px; /* Define the height */
+}
+</style>
 
 
