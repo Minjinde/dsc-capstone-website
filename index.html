@@ -105,14 +105,15 @@
                                 <a href="#method">Method</a>
                             </li>
                             <li>
-                                <a href="#result">Result</a>
+                                <a href="#result">Results</a>
+                            </li>
+                            <li>
+                                <a href="#discussion">Discussion</a>
                             </li>
                             <li>
                                 <a href="#conclusion">Conclusion</a>
                             </li>
-                            <li>
-                                <a href="#disscussion">Disscussion</a>
-                            </li>
+                            
                         </ul>
                     </nav>
                     <!--End of Main Navigation-->
@@ -164,10 +165,14 @@
                         The underlying principle of ABMs is that an individual or household’s demand for travel is based on their daily activity 
                         patterns and choices. ABMs can simulate individual and household decisions that comprise everyday travel. Leveraging ABMs 
                         can help researchers and policymakers understand the effect of different decisions and policies on travel behavior over time.
-                         Since a variety of factors contribute to an individual’s activity patterns, numerous components can be required in an ABM. 
-                         In this project, we will be focusing on the part of the ABM which predicts trip destinations. The ABM is a sequence of models 
-                         predicting various aspects of the populations' travel habits. The trip destination prediction is the near the end of the 
-                         sequence. The implications of ABMs can help SANDAG make infrastructure and urban planning policies within the San Diego region.
+                        Since a variety of factors contribute to an individual’s activity patterns, numerous components can be required in an ABM. 
+                        The ABM is a sequence of models predicting various aspects of the populations' travel habits. 
+                        This project focuses on the ABM Trip Destination component, one of the final steps before determining an individual's activity patterns and travel demand. 
+                    </p>
+                    <p>
+                        The implications of ABMs can help SANDAG make infrastructure and urban planning policies within the San Diego region.
+                        With SANDAG's trip destination component requiring 40 minutes to complete and generate 12 million trips, 
+                        this project aims to utilize machine learning to improve computational efficiency while maintaining predictive performance.
                     </p>
 
                     
@@ -242,8 +247,7 @@
 
         <div class="iframe-container">
             <iframe src="visualization.html"></iframe>
-            <a href="visualization.html" data-featherlight="image" class="col-3 img"
-                   data-wow-delay="0.7s"><img src="images/gallery-images/mean_tour.png" alt="Landing Page"/></a>
+            
         </div>
         <!--End of data-->
 
@@ -340,6 +344,19 @@
                     </p>
                 </div>
 
+                <aside class="row text-center scrollto clearfix" data-featherlight-gallery
+                 data-featherlight-filter="a">
+                
+                <a href="images/gallery-images/prediction_map.png" data-featherlight="image" class="col-2 center-container"
+                   data-wow-delay="0.1s"><img src="images/gallery-images/prediction_map.png" alt="Landing Page"/></a>
+                   <a href="images/gallery-images/trip_distances.png" data-featherlight="image" class="col-2 center-container"
+                   data-wow-delay="0.3s"><img src="images/gallery-images/trip_distances.png" alt="Landing Page"/></a>
+                <div class = "col-2 plot_text">plot of destination distribution from our prediction, similar to the one we have 
+                    for synthetic population 
+                </div>
+                
+                <div class = "col-2 plot_text">Trip distance distribution from our prediction and synthetic population is also similar</div>
+                </aside>
                 
                 
 
@@ -348,35 +365,12 @@
         </aside>
         <!--End of result-->
 
-        <!--conclusion-->
-        <section id="conclusion" class="scrollto clearfix">
-            <div class="row clearfix">
-
-                <div class="col-3">
-
-                    <div class="section-heading">
-                        <h2 class="section-title">conclusion</h2>
-                        
-                    </div>
-
-                </div>
-
-                <div class="col-61">
-
-                    <p>waiting</p>
-
-                </div>
-
-            </div>
-        </section>
-        <!--End of conclusion-->
-
-        <!--disscussion-->
-        <section id="disscussion" class="secondary-color text-center scrollto clearfix ">
+         <!--discussion-->
+        <section id="discussion" class="secondary-color text-center scrollto clearfix ">
             <div class="row clearfix">
 
                 <div class="section-heading">
-                    <h2 class="section-title">Disscussion</h2>
+                    <h2 class="section-title">Discussion</h2>
                 </div>
 
                 <div>
@@ -396,7 +390,32 @@
 
             </div>
         </section>
-        <!--End of disscussion-->
+        <!--End of discussion-->
+
+        <!--conclusion-->
+        <section id="conclusion" class="scrollto clearfix">
+            <div class="row clearfix">
+
+                <div class="col-3">
+
+                    <div class="section-heading">
+                        <h2 class="section-title">Conclusion</h2>
+                        
+                    </div>
+
+                </div>
+
+                <div class="col-61">
+
+                    <p>waiting</p>
+
+                </div>
+
+            </div>
+        </section>
+        <!--End of conclusion-->
+
+       
 
         <aside id="member" class="scrollto text-center" data-enllax-ratio=".2">
 
