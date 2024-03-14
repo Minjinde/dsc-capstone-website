@@ -353,6 +353,7 @@ section {
 }
 
 #logo img {
+    
     max-height: 22px;
     vertical-align: middle;
     margin-right: 15px;
@@ -1468,12 +1469,16 @@ blockquote {
 }
 
 /*Price*/
+.pad25{
+    padding:50px;
+
+}
 
 .plot_text {
     background: #ffffff;
     padding: 25px;
     position: relative;
-    height: 300px;
+    height: 250px;
 }
 
 .plot_text_2 {
@@ -1486,6 +1491,7 @@ blockquote {
 }
 
 .img {
+    padding-bottom: 300px;
     height: 300px;
 }
 
