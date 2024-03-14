@@ -164,12 +164,13 @@
                     <p>
                         Our project aims to enhance a segment of SANDAG's Activity-Based Model (ABM). 
                         ABMs, which base travel demand on an individual's daily activities, simulate decisions of individuals and households related to daily travel. 
-                        We are focusing on the ABM Trip Destination component, a crucial step in determining activity patterns and travel demand.
+                        We are focusing on the ABM Trip Destination component to forecast where individuals and households travel, and serves a crucial step in determining activity patterns and travel demand.
                     </p>
                     <p>
                         ABMs have significant implications for SANDAG's infrastructure and urban planning policies in San Diego. 
                         Currently, the trip destination component takes 40 minutes to process and generates 12 million trips. 
-                        Our project intends to apply machine learning to boost computational efficiency while preserving its predictive accuracy.
+                        Our project intends to apply machine learning to boost computational efficiency of SANDAG's trip destination
+                        component while preserving its predictive accuracy.
                     </p>
 
                     
@@ -184,10 +185,6 @@
         </section>
         <!--End of Introduction-->
 
-
-        
-
-
         <!--data-->
 
         <section id="data" class="secondary-color text-center scrollto clearfix ">
@@ -196,13 +193,26 @@
             <h2 class="section-title">Data and Exploratory Data Analysis</h2>
         </div>
 
-        <div><p>This project utilizes synthetic datasets derived from San Diego Census data, which are used as 
-            input for SANDAG's ABM. These datasets offer detailed sociodemographic profiles of regional households 
-            and individuals, including age, race, education level, etc., along with trip information. 
-        
-            Since San Diego is a large
-            county and contained 12 million trips, data was filtered to represent Districts 1, 2, 5, and
-            6.</p></div>
+        <div>
+            <p>
+                The ABM utilizes a statistical model to generate synthetic population data using the San Diego census data. 
+                The synthetic population datasets offer detailed sociodemographic profiles of regional households 
+                and individuals, including age, race, education level, and serves as the key initial foundation to the pipeline. 
+            </p>
+            <p>
+                The statistical model then generates a set of synthetic trips for the synthetic population.
+                The synthetic tours dataset contains information on tour details, such as origin, purpose, mode, etc.
+                The project will utilize the synthetic population and trips data to train the model and predict trip destinations. 
+                More information about each feature from the datasets can be found through <a href = "https://github.com/SANDAG/ABM" target="_blank" rel="noopener noreferrer"> SANDAG's ABM Github Repository </a>.
+            </p>
+            <p>
+                Since San Diego is a large
+                county containing 12 million trips, data was filtered to represent households in Districts 1, 2, 5, and
+                6. These district were selected based on areas of interest as they represented communities of diverse socio-economic backgrounds. Trip destinations
+                were in the form of Traffic Analysis Zones (TAZ), which were aggregated in form of Land Use Zones (LUZ).
+            </p>
+           
+       </div>
 
 
         <aside class="row text-center scrollto clearfix" data-featherlight-gallery
@@ -210,19 +220,19 @@
                 
                 <a href="images/gallery-images/origin_count.png" data-featherlight="image" class="col-3 img"
                    data-wow-delay="0.1s"><img src="images/gallery-images/origin_count.png" alt="Landing Page"/></a>
-                <div class = "col-6 plot_text center-container">Distribution of trip Origin for Synthetic population</div>
+                <div class = "col-6 plot_text center-container">Synthetic Population Trip Origin</div>
                 <a href="images/gallery-images/dest_count.png" data-featherlight="image" class="col-3 img"
                    data-wow-delay="0.3s"><img src="images/gallery-images/dest_count.png" alt="Landing Page"/></a>
-                <div class = "col-6 plot_text center-container">Distribution of trip Destination for Synthetic population</div>
+                <div class = "col-6 plot_text center-container">Synthetic Population Trip Destination</div>
 
                 <div class = 'pad25'><img src = "images/line.jpg"></div>
 
                 <div class = "col-6 plot_text center-container">
-                    Average Age of Individuals Traveling to Target LUZs</div>
+                    Average Age of Individuals Traveling to Destination LUZ</div>
                 <a href="images/gallery-images/mean_age.png" data-featherlight="image" class="col-3 img"
                    data-wow-delay="0.5s"><img src="images/gallery-images/mean_age.png" alt="Landing Page"/></a>
                 <div class = "col-6 plot_text center-container">
-                    Average Income of Individuals Traveling to Target LUZs</div>
+                    Average Income of Individuals Traveling to Destination LUZ</div>
                 <a href="images/gallery-images/mean_income.png" data-featherlight="image" class="col-3 img"
               d     data-wow-delay="1.1s"><img src="images/gallery-images/mean_income.png" alt="Landing Page"/></a>
 
@@ -230,15 +240,16 @@
 
                 <a href="images/gallery-images/mean_people.png" data-featherlight="image" class="col-3 img"
                    data-wow-delay="0.9s"><img src="images/gallery-images/mean_people.png" alt="Landing Page"/></a>
-                <div class = "col-6 plot_text center-container">Average Passenger Count for Trips to Target LUZs</div>
+                <div class = "col-6 plot_text center-container">Average Passenger Count for Trips to Destination LUZ</div>
                 <a href="images/gallery-images/mean_tour.png" data-featherlight="image" class="col-3 img"
                    data-wow-delay="0.7s"><img src="images/gallery-images/mean_tour.png" alt="Landing Page"/></a>
-                <div class = "col-6 plot_text center-container">Average Tour Count per day of Individuals Traveling to Target LUZs
+
+                <div class = "col-6 plot_tex center-container">Average Daily Tour Count of Individuals Traveling to Destination LUZ
                 </div>
 
         </aside>
-        <div><h2>Interactive 3D Synthetic Population Trip Distribution Map </h2>
-        <h5>Switch Browser for Optimal Performance if Lag Occurs</h5></div>
+        <div><h2>Interactive 3D Map for Synthetic Population Trip Destination Distribution</h2></div>
+
 
         <div class="iframe-container">
             <iframe src="visualization.html"></iframe>
@@ -252,6 +263,7 @@
     </section>
 
         <!--method Section-->
+
         
         
         <div id="method" class="scrollto text-center clearfix">
@@ -264,22 +276,34 @@
 
             </div>
 
-            <div class="row clearfix col-61 left">
-                    <p>The baseline Decision Tree model resulted in a 90% training accuracy, 52% testing ac-
-                        curacy, and 46% F1 macro averaged score. To mitigate the risks of class imbalance, we utilize an oversampling technique, SMOTE, to
-                        balance the class distribution of the dataset. And fine tuning tree parameters to find an optimal combination of hyperparameters
-                        that will help address overfitting and imbalance issue.
-                    </p>
+
+                <div class="col-3">
+
+                    <div class="section-heading">
+                        <h2 class="section-title">Conclusion</h2>
+                        
+                    </div>
+
                 </div>
 
+                <div class="col-61">
 
-                
+                    <p>
+                        Performing model selection on the synthetic dataset resulted in a 
+                        Decision Tree Classifier obtaining the best accuracy scores.
+                        The baseline Decision Tree model resulted in a 90% training accuracy, 72% testing accuracy, 
+                        and 72% F1 weighted averaged score. 
+                        To mitigate the risks of class imbalance, our team utilized an oversampling technique, Synthetic Minority Oversampling Technique (SMOTE), to
+                        balance the class distribution of the dataset. 
+                        GridSearch Cross Validation helped tune the model's hyperparameters further to address issues of overfitting and optimize the model
+                        for F1 weight average score.
+                    </p>
 
+                </div>
             </div>
-
-
-        </div>
-        <!--End of method Section-->
+    </section>
+        
+    <!--End of method Section-->
 
         <!--result-->
         <aside id="result" class="scrollto text-center" data-enllax-ratio=".2">
@@ -294,10 +318,10 @@
             </div>
                 <div class = 'col-61 left plot_text'>
                     <p>
-                        GridSearch cross-validation resulted in a model with a 73% F1 weighted average score. 
-                        SANDAG evaluates model performance by comparing trip distance distributions. 
-                        A 2-Sample Kolmogorov-Smirnov Test on 10,000 trips from each model yielded a p-value of 0.9374, 
-                        indicating no significant difference in the distributions.
+                        Optimal hyperparameters obtained from GridSearch cross-validation resulted in a model with a 73% F1 weighted average score.
+                        SANDAG evaluates performance of various ABM iterations by comparing distance distributions of predicted trips to provide a comprehensive overview that captures overall differences.
+                        The trip distance distributions for the decision tree and synthetic trips (generated by current ABM) were tested by 
+                        a 2-Sample Kolmogorov-Smirnov Test on samples of 10,000 trips, yielding a p-value of 0.9374.
                     </p>
                 </div>
 
@@ -309,7 +333,7 @@
                    <a href="images/gallery-images/trip_distances.png" data-featherlight="image" class="col-2 center-container"
                    data-wow-delay="0.3s"><img src="images/gallery-images/trip_distances.png" alt="Landing Page"/></a>
 
-                <div class = "col-2 plot_text_2">Distribution of trip Destination for Model Prediction</div>
+                <div class = "col-2 plot_text_2">LUZ Trip Destination for Model Prediction</div>
 
                 
                 <div class = "col-2 plot_text_2">Trip Distance Distribution</div>
@@ -319,10 +343,10 @@
                    <a href="images/gallery-images/result_tour.png" data-featherlight="image" class="col-2 center-container-2"
                    data-wow-delay="0.3s"><img src="images/gallery-images/result_tour.png" alt="Landing Page"/></a>
 
-                <div class = "col-2 plot_text_2">Trip Distance Distribution for different Education level</div>
+                <div class = "col-2 plot_text_2">Trip Distance Distribution by Education Level</div>
 
                 
-                <div class = "col-2 plot_text_2">Trip Distance Distribution for different tour purpose</div>
+                <div class = "col-2 plot_text_2">Trip Distance Distribution by Tour Purpose</div>
                 </aside>
                 
                 
@@ -342,12 +366,19 @@
 
                 <div>
                     <p>
+                        The results indicate that machine learning applications have the potential to 
+                        improve the domain of ABMs. A p-value of 0.9374 
+                        indicates that there is not enough evidence to conclude that the two samples come from the the same distribution. 
+                        The model obtains a score for precision and recall both at 73\%, 
+                        showing that model's ability to balance correctly identifying true instances while minimizing false predictions.
                         Compared to SANDAG’s trip destination component, which has a linear time complexity
                         and requires a 40 minute runtime to generate 12 million trips, the decision tree model
                         requires a 1.5 minute runtime to train on 4.5 million trips, and predict 1 million trips. 
-                        In the future, the team hopes to explore with more
-complex models, such as Neural Networks or ensemble methods similar to previous litera-
-ture, that will capture the complex relationship of the trips and improve generalization.
+                    </p>
+                    <p>                    
+                        In the future, the team hopes to analyze how the decision tree performs with a larger dataset, such as 12 million.
+                        We hope to explore the application of more advanced models, such as Neural Networks or ensemble methods similar to previous literature, 
+                        to will adequately capture complex relationships between trips and individuals, and improve generalization compared to a decision tree.
                     </p>
                 </div>
 
@@ -372,15 +403,17 @@ ture, that will capture the complex relationship of the trips and improve genera
 
                 <div class="col-61">
 
-                    <p>In conclusion, the project’s findings demonstrate machine learning’s potential to make a
+                    <p>The project’s findings demonstrate machine learning’s potential to make a
                         positive impact in the domain of ABMs. The decision tree model maintained similar trip
-                        destination predictions to the current SANDAG ABM while increasing computational effi-
-                        ciency.
+                        destination predictions to the current SANDAG ABM while improving computational efficiency.
+                        However, it's important to note that our team's findings do not prove that machine learning directly improved predictive power for ABMs, 
+                        nor do they conclude that machine learning is a better alternative to ABMs.
                         As the field of ABMs continues to grow, it is integral to seek methods to improve current
-                        pipelines, and machine learning has the potential to provide valuable insights. 
-                        mproving ABMs can help organizations strive towards devel-
-                        oping more innovative solutions and creating local policies that are beneficial and equitable
-                        for all residents.</p>
+                        pipelines, and incorporating machine learning techniques into 
+                        activity based model can be promising for our future by improving our understanding of travel behavior. 
+                        The combination of these techniques can allow organizations to capture complex relationships between individuals, daily activity patterns, and travel demand 
+                        to strive towards developing more innovative solutions, and creating local policies that are beneficial and equitable for all residents.
+                    </p>
 
                 </div>
 
@@ -395,7 +428,7 @@ ture, that will capture the complex relationship of the trips and improve genera
             <div class="row clearfix">
 
                 <div class="section-heading">
-                    <h2 class="section-title">member</h2>
+                    <h2 class="section-title">Members</h2>
                 </div>
 
                 <!--User result-->
