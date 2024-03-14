@@ -160,24 +160,23 @@
 
                 </div>
 
-                <div class="col-61">
+                <div class="col-3">
                     <p>
-                        The underlying principle of ABMs is that an individual or household’s demand for travel is based on their daily activity 
-                        patterns and choices. ABMs can simulate individual and household decisions that comprise everyday travel. Leveraging ABMs 
-                        can help researchers and policymakers understand the effect of different decisions and policies on travel behavior over time.
-                        Since a variety of factors contribute to an individual’s activity patterns, numerous components can be required in an ABM. 
-                        The ABM is a sequence of models predicting various aspects of the populations' travel habits. 
-                        This project focuses on the ABM Trip Destination component, one of the final steps before determining an individual's activity patterns and travel demand. 
+                        Our project aims to enhance a segment of SANDAG's Activity-Based Model (ABM). 
+                        ABMs, which base travel demand on an individual's daily activities, simulate decisions of individuals and households related to daily travel. 
+                        We are focusing on the ABM Trip Destination component, a crucial step in determining activity patterns and travel demand.
                     </p>
                     <p>
-                        The implications of ABMs can help SANDAG make infrastructure and urban planning policies within the San Diego region.
-                        With SANDAG's trip destination component requiring 40 minutes to complete and generate 12 million trips, 
-                        this project aims to utilize machine learning to improve computational efficiency while maintaining predictive performance.
+                        ABMs have significant implications for SANDAG's infrastructure and urban planning policies in San Diego. 
+                        Currently, the trip destination component takes 40 minutes to process and generates 12 million trips. 
+                        Our project intends to apply machine learning to boost computational efficiency while preserving its predictive accuracy.
                     </p>
 
                     
 
                 </div>
+                <div class = 'col-3'><a href="images/ABM.png" data-featherlight="image" 
+                    data-wow-delay="0.1s"><img src="images/ABM.png" alt="Landing Page"/></a></div>
 
             </div>
 
@@ -194,52 +193,42 @@
         <section id="data" class="secondary-color text-center scrollto clearfix ">
             <div class="row clearfix">
         <div class="section-heading">
-            <h2 class="section-title">Data and Feature Selection</h2>
+            <h2 class="section-title">Data and Exploratory Data Analysis</h2>
         </div>
 
-        <div><p>This paper draws data from SANDAG's synthetic files. Synthetic datasets were generated from San Diego Census data, 
-            and serves as input data for SANDAG's ABM. Synthetic population is an important initial component of ABMs. It is a 
-            list of sociodemographic information for household and peoples in the given region. The synthetic person dataset 
-            contains 27 features regarding a San Diego resident's sociodemographic information, such as age, race, education level,
-             and each row is a record of an individual. The synthetic tours dataset contains features regarding the tour details, 
-             such as origin, purpose, mode, where each row is a simulated trip. More information about each feature can be found 
-             through the SANDAG's ABM Github Repository.</p></div>
+        <div><p>This project utilizes synthetic datasets derived from San Diego Census data, which are used as 
+            input for SANDAG's ABM. These datasets offer detailed sociodemographic profiles of regional households 
+            and individuals, including age, race, education level, etc., along with trip information. 
+        
+            Since San Diego is a large
+            county and contained 12 million trips, data was filtered to represent Districts 1, 2, 5, and
+            6.</p></div>
 
 
         <aside class="row text-center scrollto clearfix" data-featherlight-gallery
                  data-featherlight-filter="a">
                 
-                <a href="images/gallery-images/origin_count.jpg" data-featherlight="image" class="col-3 img"
+                <a href="images/gallery-images/origin_count.png" data-featherlight="image" class="col-3 img"
                    data-wow-delay="0.1s"><img src="images/gallery-images/origin_count.png" alt="Landing Page"/></a>
-                <div class = "col-6 plot_text">From the left we could see that most of the trips we have in the house-
-                    hold living in the given district is started from the middle of San Diego County and have a
-                    destination near the San Diego downtown</div>
+                <div class = "col-6 plot_text center-container">Distribution of trip Origin for Synthetic population</div>
                 <a href="images/gallery-images/dest_count.png" data-featherlight="image" class="col-3 img"
                    data-wow-delay="0.3s"><img src="images/gallery-images/dest_count.png" alt="Landing Page"/></a>
-                <div class = "col-6 plot_text"> And from this plot we could see that trips usually have a
-                    destination near the San Diego</div>
+                <div class = "col-6 plot_text center-container">Distribution of trip Destination for Synthetic population</div>
 
-                <div class = "col-6 plot_text">This one shows the mean age of travelers going into a LUZ zone. As we could see
-                    most LUZ zones have similar ages of travelers except the zones on the East of the San Diego
-                    County. Which could provide us some idea of where a person is going by their age</div>
+                <div class = "col-6 plot_text center-container">
+                    Average Age of Individuals Traveling to Target LUZs</div>
                 <a href="images/gallery-images/mean_age.png" data-featherlight="image" class="col-3 img"
                    data-wow-delay="0.5s"><img src="images/gallery-images/mean_age.png" alt="Landing Page"/></a>
-                <div class = "col-6 plot_text">This plot provide an idea of the mean household income for people traveling to
-                    a that LUZ zone. People have a destination near La Jolla area tend
-                    to have higher household income, indicates how income of a person would tell
-                    us about where that person is going</div>
+                <div class = "col-6 plot_text center-container">
+                    Average Income of Individuals Traveling to Target LUZs</div>
                 <a href="images/gallery-images/mean_income.png" data-featherlight="image" class="col-3 img"
               d     data-wow-delay="1.1s"><img src="images/gallery-images/mean_income.png" alt="Landing Page"/></a>
                 <a href="images/gallery-images/mean_people.png" data-featherlight="image" class="col-3 img"
                    data-wow-delay="0.9s"><img src="images/gallery-images/mean_people.png" alt="Landing Page"/></a>
-                <div class = "col-6 plot_text">This plot show us the mean number of participants in the trip. 
-                    We could see that most Zones near San Diego city and East of the County have only one participant and trip to other Zone have 
-                     more participants</div>
+                <div class = "col-6 plot_text center-container">Average Passenger Count for Trips to Target LUZs</div>
                 <a href="images/gallery-images/mean_tour.png" data-featherlight="image" class="col-3 img"
                    data-wow-delay="0.7s"><img src="images/gallery-images/mean_tour.png" alt="Landing Page"/></a>
-                <div class = "col-6 plot_text">And the last plot shows the mean number of plots people traveling to that LUZ zone is taking. 
-                    We could see that people traveling to South East San Diego Country take less tour compare to people traveling near the city
-
+                <div class = "col-6 plot_tex center-container">Average Tour Count per day of Individuals Traveling to Target LUZs
                 </div>
 
         </aside>
@@ -259,53 +248,19 @@
         <!--method Section-->
         
         
-        <div id="method" class="scrollto clearfix text-center">
+        <div id="method" class="scrollto text-center clearfix">
             <div class="section-heading">
-                <h2 class="section-title">Methodology</h2>
+                <h2 class="section-title col-3">Methodology</h2>
             </div>
 
-            <div class="row no-padding-bottom clearfix">
-
-
-                
-
-
-                <div class="col-3 left">
-
-                    <p>When deciding necessary features for the model, exploratory data analysis was reference to
-                        find the synthetic dataset variables highly correlated with destination, such as tour category,
-                        tour type, and origin.</p>
-
-                    <p>Using cross validation on our synthetic tours dataset, we tested baseline model performance
-                        on our dataset. With a classification problem, we tested Decision Tree Classifier, Random
-                        Forest Classifier, XGBoost Classifier, and AdaBoost Classifier. Comparing baseline model
-                        performances, we chose to move forward with the Decision Tree Classifier.
-                    </p>
-                </div>
-
-                <div class="col-3 left">
-                    
+            <div class="row clearfix col-61 left">
                     <p>The baseline Decision Tree model resulted in a 90% training accuracy, 52% testing ac-
-                        curacy, and 46% F1 macro averaged score. Through our exploratory data analysis and the
-                        baseline results, we concluded that our dataset suffered from severe class imbalance and
-                        overfitting.
-                        
-                    </p>
-                    <p>
-                        To mitigate the risks of class imbalance, we utilize an oversampling technique, SMOTE, to
-                        balance the class distribution of the dataset. Undersampling our majority classes resulted
-                        in poor performance, so our data might have been sensitive to the loss of information. Im-
-                        plementing SMOTE to increase the sample size of minority classes improved the metrics
+                        curacy, and 46% F1 macro averaged score. To mitigate the risks of class imbalance, we utilize an oversampling technique, SMOTE, to
+                        balance the class distribution of the dataset. And fine tuning tree parameters to find an optimal combination of hyperparameters
+                        that will help address overfitting and imbalance issue.
                     </p>
                 </div>
-     
-                <div class="col-3 left">
-                    <p>The next steps was to fine tuning the model with GridSearch cross validation to find optimal
-                        hyperparameters, such as, max_depth, min_samples_leaf, min_samples_split, etc. Finding
-                        an optimal combination of these hyperparameters will help address the tree’s overfitting
-                        and class imbalance issues. The optimized metric will be an F1 weighted average score</p>
-                    <!--<img src="images/dancer.jpg"/>-->
-                </div>
+
 
                 
 
@@ -318,29 +273,15 @@
         <!--result-->
         <aside id="result" class="scrollto text-center" data-enllax-ratio=".2">
 
-            <div class="row clearfix">
-
                 <div class="section-heading">
-                    <h2 class="section-title">Result</h2>
+                    <h2 class="section-title col-3">Result</h2>
                 </div>
-                <div>
+                <div class = 'col-61 left plot_text'>
                     <p>
-                        Implementing SMOTE did not heavily impact the F1 scoring metric of the baseline model. This is likely due to 
-                        the variation and noise of the data being improperly captured by the synthetic data. However, 
-                        The results of the GridSearch cross validation hyperparameter tuning resulted in a model with an F1 weighted 
-                        average score of 73%. 
-                        SANDAG is continuously seeking to improve their ABM trip prediction component while maintaining predictive 
-                        performance. They evaluate the performance of different versions of models to their existing ABM by comparing 
-                        trip distance distributions between the synthetic population's trips and trip prediction component. 
-                        By association, predicting trip destinations is related to predicting the distances between a start and 
-                        destination. Comparing distance distributions for similarities helps capture the variability in trip distances 
-                        and allow flexibility in predictions. It is an efficient method of communicating performance results to a 
-                        broader audience in a more interpretable manner. Consistency between the two distributions indicates the 
-                        model's reliability and validity.
-                        The distance distribution comparison between the Decision Tree and SANDAG's ABM was conducted through a 
-                        2-Sample Kolmogorov-Smirnov Test. A sample of 10,000 trips from each model was randomly drawn to test 
-                        whether the two samples come from similar distributions. A p-value of 0.9374 was obtained, meaning there is not 
-                        sufficient evidence to suggest the two samples come from different distributions.
+                        GridSearch cross-validation resulted in a model with a 73% F1 weighted average score. 
+                        SANDAG evaluates model performance by comparing trip distance distributions. 
+                        A 2-Sample Kolmogorov-Smirnov Test on 10,000 trips from each model yielded a p-value of 0.9374, 
+                        indicating no significant difference in the distributions.
                     </p>
                 </div>
 
@@ -351,11 +292,21 @@
                    data-wow-delay="0.1s"><img src="images/gallery-images/prediction_map.png" alt="Landing Page"/></a>
                    <a href="images/gallery-images/trip_distances.png" data-featherlight="image" class="col-2 center-container"
                    data-wow-delay="0.3s"><img src="images/gallery-images/trip_distances.png" alt="Landing Page"/></a>
-                <div class = "col-2 plot_text">plot of destination distribution from our prediction, similar to the one we have 
-                    for synthetic population 
-                </div>
+
+                <div class = "col-2 plot_text_2">Distribution of trip Destination for Model Prediction</div>
+
                 
-                <div class = "col-2 plot_text">Trip distance distribution from our prediction and synthetic population is also similar</div>
+                <div class = "col-2 plot_text_2">Trip Distance Distribution</div>
+
+                <a href="images/gallery-images/result_education.png" data-featherlight="image" class="col-2 center-container-2"
+                   data-wow-delay="0.1s"><img src="images/gallery-images/result_education.png" alt="Landing Page"/></a>
+                   <a href="images/gallery-images/result_tour.png" data-featherlight="image" class="col-2 center-container-2"
+                   data-wow-delay="0.3s"><img src="images/gallery-images/result_tour.png" alt="Landing Page"/></a>
+
+                <div class = "col-2 plot_text_2">Trip Distance Distribution for different Education level</div>
+
+                
+                <div class = "col-2 plot_text_2">Trip Distance Distribution for different tour purpose</div>
                 </aside>
                 
                 
@@ -375,14 +326,12 @@
 
                 <div>
                     <p>
-                        Further improvements on the model could have been made. The decision tree’s training
-                        and testing accuracy. Although the GridSearch cross validation was optimized for F1 score,
-                        considering . Pre-pruning techniques, such as limiting maximum depth and minimum sam-
-                        ples per leaf did not sufficiently prevent the decision tree from overfitting. Cost-complexity
-                        pruning techniques were explored, but were chosen not to be implemented due to the large
-                        data size and its sensitivity to sampling. In the future, the team hopes to explore with
-                        more complex models, such as Neural Networks or ensemble methods that will capture the
-                        complex relationship of the trips and improve generalization.
+                        Compared to SANDAG’s trip destination component, which has a linear time complexity
+                        and requires a 40 minute runtime to generate 12 million trips, the decision tree model
+                        requires a 1.5 minute runtime to train on 4.5 million trips, and predict 1 million trips. 
+                        In the future, the team hopes to explore with more
+complex models, such as Neural Networks or ensemble methods similar to previous litera-
+ture, that will capture the complex relationship of the trips and improve generalization.
                     </p>
                 </div>
 
@@ -407,7 +356,15 @@
 
                 <div class="col-61">
 
-                    <p>waiting</p>
+                    <p>In conclusion, the project’s findings demonstrate machine learning’s potential to make a
+                        positive impact in the domain of ABMs. The decision tree model maintained similar trip
+                        destination predictions to the current SANDAG ABM while increasing computational effi-
+                        ciency.
+                        As the field of ABMs continues to grow, it is integral to seek methods to improve current
+                        pipelines, and machine learning has the potential to provide valuable insights. 
+                        mproving ABMs can help organizations strive towards devel-
+                        oping more innovative solutions and creating local policies that are beneficial and equitable
+                        for all residents.</p>
 
                 </div>
 
@@ -426,32 +383,34 @@
                 </div>
 
                 <!--User result-->
-                <blockquote class="col-3 testimonial classic">
+                <blockquote class="col-4 testimonial classic">
                     <img src="images/user-images/user-1.jpg" alt="User"/>
-                    <q>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore
-                        et dolore magna aliqua</q>
+
                     <footer>Ryan Liao - rsliao@ucsd.edu</footer>
                 </blockquote>
                 <!-- End of result-->
 
                 <!--User result-->
-                <blockquote class="col-3 testimonial classic">
+                <blockquote class="col-4 testimonial classic">
                     <img src="images/user-images/user-2.jpg" alt="User"/>
-                    <q>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore
-                        et dolore magna aliqua</q>
+
                     <footer>Emily Chen - e6chen@ucsd.edu</footer>
                 </blockquote>
                 <!-- End of result-->
 
                 <!--User result-->
-                <blockquote class="col-3 testimonial classic">
+                <blockquote class="col-4 testimonial classic">
                     <img src="images/user-images/user-3.jpg" alt="User"/>
-                    <q>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore
-                        et dolore magna aliqua</q>
+
                     <footer>Minjin Li - mil035@ucsd.edu</footer>
+                </blockquote>
+                <!-- End of result-->
+
+                <!--User result-->
+                <blockquote class="col-4 testimonial classic">
+                    <img src="images/user-images/user-4.jpg" alt="User"/>
+
+                    <footer>Mentor: Bhargava Sana ​- bhargava.sana@sandag.org</footer>
                 </blockquote>
                 <!-- End of result-->
 
