@@ -277,12 +277,11 @@
             <div class="row clearfix col-61 left">
                     <p> Performing model selection on the synthetic dataset resulted in a 
                         Decision Tree Classifier obtaining the best accuracy scores.
-                        The baseline Decision Tree model resulted in a 90% training accuracy, 72% testing accuracy, 
-                        and 72% F1 weighted averaged score. 
+                        The baseline Decision Tree model resulted in a 90% training accuracy, 72% testing accuracy, 72% F1 weighted averaged score, and 50% F1 macro averaged score. 
                         To mitigate the risks of class imbalance, our team utilized an oversampling technique, Synthetic Minority Oversampling Technique (SMOTE), to
                         balance the class distribution of the dataset. 
-                        GridSearch Cross Validation helped tune the model's hyperparameters further to address issues of overfitting and optimize the model
-                        for F1 weight average score.
+                        GridSearch Cross Validation helped tune the model's hyperparameters to address issues of overfitting and optimize the model
+                        for F1 weighted average score.
                     </p>
                 </div>
                 
@@ -353,10 +352,9 @@
 
                 <div>
                     <p>
-                        The results indicate that machine learning applications have the potential to 
-                        improve the domain of ABMs. A p-value of 0.9374 
-                        indicates that there is not enough evidence to conclude that the two samples come from the the same distribution. 
-                        The model obtains a score for precision and recall both at 73\%, 
+                        The results indicate that machine learning applications have the potential to impactful in the domain of ABMs. A p-value of 0.9374 
+                        indicates that there is not enough evidence to conclude that the two samples come from the different distributions. 
+                        The model obtains a score for precision and recall both at 73%, 
                         showing that model's ability to balance correctly identifying true instances while minimizing false predictions.
                         Compared to SANDAG’s trip destination component, which has a linear time complexity
                         and requires a 40 minute runtime to generate 12 million trips, the decision tree model
@@ -364,12 +362,10 @@
                     </p>
                     <p>                    
                         In the future, the team hopes to analyze how the decision tree performs with a larger dataset, such as 12 million.
-                        We hope to explore the application of more advanced models, such as Neural Networks or ensemble methods similar to previous literature, 
+                        We hope to explore alternative oversampling techniques and the application of more advanced models, such as Neural Networks or ensemble methods similar to previous literature, 
                         to will adequately capture complex relationships between trips and individuals, and improve generalization compared to a decision tree.
                     </p>
                 </div>
-
-                
 
             </div>
         </section>
@@ -390,16 +386,15 @@
 
                 <div class="col-61">
 
-                    <p>The project’s findings demonstrate machine learning’s potential to make a
-                        positive impact in the domain of ABMs. The decision tree model maintained similar trip
+                    <p>The project provides valuable insight on machine learning applications in the domain of ABMs. The decision tree model maintained similar trip
                         destination predictions to the current SANDAG ABM while improving computational efficiency.
                         However, it's important to note that our team's findings do not prove that machine learning directly improved predictive power for ABMs, 
                         nor do they conclude that machine learning is a better alternative to ABMs.
                         As the field of ABMs continues to grow, it is integral to seek methods to improve current
                         pipelines, and incorporating machine learning techniques into 
-                        activity based model can be promising for our future by improving our understanding of travel behavior. 
+                        activity based models can be promising for our future by improving our understanding of travel behavior. 
                         The combination of these techniques can allow organizations to capture complex relationships between individuals, daily activity patterns, and travel demand 
-                        to strive towards developing more innovative solutions, and creating local policies that are beneficial and equitable for all residents.
+                        to strive towards developing more innovative solutions and establish local policies that are beneficial and equitable for all residents.
                     </p>
 
                 </div>
